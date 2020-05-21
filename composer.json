@@ -1,0 +1,29 @@
+{
+    "name": "prtksxna/viz",
+    "type": "project",
+    "description": "WordPress plugin to create visualizations",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Prateek Saxena",
+            "email": "prtksxna@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.5",
+        "wp-coding-standards/wpcs": "^2.2",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
+        "phpcompatibility/php-compatibility": "^9.3"
+    },
+    "scripts": {
+        "test": "composer run-script lint",
+        "lint": "phpcs *.php --ignore=vendor -s",
+        "install-codestandards": [
+            "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
+        ],
+        "post-install-cmd": [
+            "@install-codestandards"
+        ]
+    }
+}

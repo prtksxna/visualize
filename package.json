@@ -1,0 +1,23 @@
+{
+  "name": "viz",
+  "version": "1.0.0",
+  "description": "Visualizations for WordPress",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "stylelint": "stylelint **/*.css --ignore-pattern vendor",
+    "eslint": "eslint src/*.js",
+    "test": "npm run stylelint && npm run eslint",
+    "build": "wp-scripts build"
+  },
+  "author": "prtksxna",
+  "license": "GPL-2.0-only",
+  "devDependencies": {
+    "@wordpress/eslint-plugin": "^5.0.1",
+    "@wordpress/scripts": "7.2.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.19.0",
+    "stylelint": "^13.3.3",
+    "stylelint-config-wordpress": "^16.0.0"
+  }
+}
