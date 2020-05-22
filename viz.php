@@ -36,22 +36,27 @@ function viz_block() {
     filemtime( plugin_dir_path( __FILE__ ) . 'style.css' )
   );
 
-  wp_enqueue_style( 'viz-google-fonts', 'https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap', false, 'custom' );
-
   register_block_type(
-    'viz/viz',
+    'viz/mermaid',
     array(
         'style'         => 'viz-style',
         'editor_script' => 'viz',
+        'mermaid'       => 'viz-mermaid',
     )
   );
 }
 add_action( 'init', 'viz_block' );
 
 /**
- * Register Google Font styles.
+ * Enque assets
  */
-function viz_styles() {
-  wp_enqueue_style( 'viz-google-fonts', 'https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap', false, 'custom' );
+function viz_assets() {
+  wp_enqueue_script(
+    'viz-mermaid',
+    plugins_url( '/lib/mermaid.min.js', __FILE__ ),
+    array(),
+    filemtime(plugins_url( '/lib/mermaid.min.js', __FILE__ )),
+    false
+  );
 }
-add_action( 'wp_enqueue_scripts', 'viz_styles' );
+add_action( 'enqueue_block_assets', 'viz_assets' );

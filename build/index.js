@@ -116,15 +116,6 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('viz
   title: 'Mermaid',
   icon: 'networking',
   category: 'layout',
-  styles: [{
-    name: 'paper',
-    label: 'Paper',
-    // TODO: What to do here? Use _x
-    isDefault: true
-  }, {
-    name: 'flat',
-    label: 'Flat'
-  }],
   supports: {
     align: true,
     alignWide: false,
@@ -135,24 +126,16 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('viz
     content: {
       type: 'array',
       source: 'children',
-      selector: 'p'
+      selector: 'pre'
     },
     alignment: {
       type: 'string',
       default: 'none'
-    },
-    color: {
-      type: 'string',
-      default: '#f9eeaa'
-    },
-    fontSize: {
-      type: 'number',
-      default: 16
     }
   },
   example: {
     attributes: {
-      content: 'Type something…',
+      content: 'graph LR',
       alignment: 'center'
     }
   },
@@ -160,12 +143,13 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('viz
     var _props$attributes = props.attributes,
         content = _props$attributes.content,
         alignment = _props$attributes.alignment,
-        color = _props$attributes.color,
-        fontSize = _props$attributes.fontSize,
         setAttributes = props.setAttributes,
-        className = props.className;
+        className = props.className,
+        isSelected = props.isSelected;
+    console.log(isSelected);
 
-    var onChangeContent = function onChangeContent(newContent) {
+    var onChangeContent = function onChangeContent(e) {
+      var newContent = e.target.value;
       setAttributes({
         content: newContent
       });
@@ -177,76 +161,23 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('viz
       });
     };
 
-    var onChangeColor = function onChangeColor(newColor) {
-      props.setAttributes({
-        color: newColor === undefined ? '#f9eeaa' : newColor
-      });
-    };
-
-    var fontSizes = [{
-      name: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Normal'),
-      slug: 'normal',
-      size: 16
-    }, {
-      name: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Medium'),
-      slug: 'medium',
-      size: 20
-    }, {
-      name: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Large'),
-      slug: 'large',
-      size: 36
-    }, {
-      name: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Huge'),
-      slug: 'huge',
-      size: 48
-    }];
-    var fallbackFontSize = 20;
-
-    var onFontSizeChange = function onFontSizeChange(newFontSize) {
-      props.setAttributes({
-        fontSize: newFontSize === undefined ? fallbackFontSize : newFontSize
-      });
-    };
-
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["BlockControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["AlignmentToolbar"], {
       value: alignment,
       onChange: onChangeAlignment
-    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-      title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Color')
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelRow"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["ColorPalette"], {
-      disableCustomColors: false,
-      value: color,
-      onChange: onChangeColor,
-      clearable: true
-    }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-      title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Font size')
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelRow"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["FontSizePicker"], {
-      fontSizes: fontSizes,
-      fallbackFontSize: fallbackFontSize,
-      value: fontSize,
-      onChange: onFontSizeChange
-    })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
-      tagName: "p",
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, "Test"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("pre", {
+      className: "mermaid2"
+    }, content), isSelected && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("textarea", {
       className: className,
       style: {
-        textAlign: alignment,
-        backgroundColor: color,
-        fontSize: fontSize
+        textAlign: alignment
       },
-      onChange: onChangeContent,
-      value: content
-    }));
+      onChange: onChangeContent
+    }, content));
   },
   save: function save(props) {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
-      className: "viz-".concat(props.attributes.alignment),
-      style: {
-        fontSize: props.attributes.fontSize,
-        backgroundColor: props.attributes.color
-      },
-      tagName: "p",
-      value: props.attributes.content
-    });
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("pre", {
+      className: "mermaid"
+    }, props.attributes.content);
   }
 });
 

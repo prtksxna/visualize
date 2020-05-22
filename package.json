@@ -19,5 +19,8 @@
     "eslint-plugin-react": "^7.19.0",
     "stylelint": "^13.3.3",
     "stylelint-config-wordpress": "^16.0.0"
+  },
+  "dependencies": {
+    "mermaid": "^8.5.1"
   }
 }
