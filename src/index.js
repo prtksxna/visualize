@@ -8,6 +8,8 @@ import {
 } from '@wordpress/block-editor';
 import { PanelBody, PanelRow } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
+import mermaid, {mermaidAPI} from 'mermaid';
+
 
 registerBlockType( 'viz/mermaid', {
 	title: 'Mermaid',
@@ -29,6 +31,9 @@ registerBlockType( 'viz/mermaid', {
 			type: 'string',
 			default: 'none',
 		},
+		diagramSVG: {
+			type: 'string'
+		}
 	},
 	example: {
 		attributes: {
@@ -38,17 +43,21 @@ registerBlockType( 'viz/mermaid', {
 	},
 	edit( props ) {
 		const {
-			attributes: { content, alignment },
+			attributes: { content, alignment, diagramSVG },
 			setAttributes,
 			className,
 			isSelected,
 		} = props;
 
-		console.log(isSelected);
+		const updateGraph = (html) => {
+			setAttributes({diagramSVG: html})
+		}
 
 		const onChangeContent = ( e ) => {
 			var newContent = e.target.value;
 			setAttributes( { content: newContent } );
+
+			var graph = mermaidAPI.render('graphDiv', newContent, updateGraph)
 		};
 
 		const onChangeAlignment = ( newAlignment ) => {
@@ -72,7 +81,7 @@ registerBlockType( 'viz/mermaid', {
 						Test
 					</InspectorControls>
 				}
-
+				<div className="mermaid__canvas" dangerouslySetInnerHTML={{__html: diagramSVG}}></div>
 				<pre className='mermaid2'>{ content }</pre>
 				{isSelected && (
 					<textarea
