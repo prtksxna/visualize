@@ -17,7 +17,7 @@ registerBlockType( 'viz/mermaid', {
 	category: 'layout',
 	supports: {
 		align: true,
-		alignWide: false,
+		alignWide: true,
 		reusable: false,
 		lightBlockWrapper: true,
 	},

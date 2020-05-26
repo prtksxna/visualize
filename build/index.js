@@ -46016,7 +46016,7 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('viz
   category: 'layout',
   supports: {
     align: true,
-    alignWide: false,
+    alignWide: true,
     reusable: false,
     lightBlockWrapper: true
   },
