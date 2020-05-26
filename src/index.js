@@ -25,12 +25,12 @@ registerBlockType( 'viz/mermaid', {
 		content: {
 			type: 'string',
 			source: 'text',
-			selector: 'pre',
+			selector: 'pre.js-viz-content',
 		},
 		error: {
 			type: 'string',
 			source: 'text',
-			selector: 'pre.error',
+			selector: 'pre.js-viz-error',
 		},
 		alignment: {
 			type: 'string',
@@ -83,7 +83,7 @@ registerBlockType( 'viz/mermaid', {
 		};
 
 		return (
-			<div>
+			<div className={className}>
 				{
 					<BlockControls>
 						<AlignmentToolbar
@@ -97,16 +97,18 @@ registerBlockType( 'viz/mermaid', {
 						Test
 					</InspectorControls>
 				}
-				<div className="mormaid__canvas" dangerouslySetInnerHTML={{__html: diagramSVG}}></div>
-				<pre className="error">{ error }</pre>
+				<div className="vizMermaid__canvas" dangerouslySetInnerHTML={{__html: diagramSVG}}></div>
 				{isSelected && (
-					<textarea
-						className={ className }
-						style={ {
-							textAlign: alignment,
-						} }
-						onChange={ onChangeContent }
-					>{ content }</textarea>
+					<>
+						<pre className="vizMermaid__error">{ error }</pre>
+						<textarea
+							className="vizMermaid__textarea"
+							style={ {
+								textAlign: alignment,
+							} }
+							onChange={ onChangeContent }
+							>{ content }</textarea>
+					</>
 				)}
 			</div>
 		);
@@ -114,9 +116,16 @@ registerBlockType( 'viz/mermaid', {
 	save: ( props ) => {
 		return (
 			<div>
-				<pre>{ props.attributes.content }</pre>
-				<pre className="error">{ props.attributes.error }</pre>
-				<div className="mormaid__canvas" dangerouslySetInnerHTML={{__html: props.attributes.diagramSVG}}></div>
+				<pre className="vizMermaid__content js-viz-content">
+					{ props.attributes.content }
+				</pre>
+				<pre className="vizMermaid__error vizMermaid__error--hidden js-viz-error">
+					{ props.attributes.error }
+				</pre>
+				<div
+					className="vizMermaid__canvas"
+					dangerouslySetInnerHTML={{__html: props.attributes.diagramSVG}}
+				/>
 			</div>
 		);
 	},

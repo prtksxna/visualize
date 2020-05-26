@@ -46024,12 +46024,12 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('viz
     content: {
       type: 'string',
       source: 'text',
-      selector: 'pre'
+      selector: 'pre.js-viz-content'
     },
     error: {
       type: 'string',
       source: 'text',
-      selector: 'pre.error'
+      selector: 'pre.js-viz-error'
     },
     alignment: {
       type: 'string',
@@ -46091,29 +46091,33 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('viz
       });
     };
 
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["BlockControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["AlignmentToolbar"], {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+      className: className
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["BlockControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["AlignmentToolbar"], {
       value: alignment,
       onChange: onChangeAlignment
     })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, "Test"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-      className: "mormaid__canvas",
+      className: "vizMermaid__canvas",
       dangerouslySetInnerHTML: {
         __html: diagramSVG
       }
-    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("pre", {
-      className: "error"
-    }, error), isSelected && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("textarea", {
-      className: className,
+    }), isSelected && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("pre", {
+      className: "vizMermaid__error"
+    }, error), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("textarea", {
+      className: "vizMermaid__textarea",
       style: {
         textAlign: alignment
       },
       onChange: onChangeContent
-    }, content));
+    }, content)));
   },
   save: function save(props) {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("pre", null, props.attributes.content), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("pre", {
-      className: "error"
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("pre", {
+      className: "vizMermaid__content js-viz-content"
+    }, props.attributes.content), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("pre", {
+      className: "vizMermaid__error vizMermaid__error--hidden js-viz-error"
     }, props.attributes.error), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-      className: "mormaid__canvas",
+      className: "vizMermaid__canvas",
       dangerouslySetInnerHTML: {
         __html: props.attributes.diagramSVG
       }

@@ -1,3 +1,19 @@
-.wp-block-viz-mermaid {
-  background: #f0f;
+.vizMermaid__error {
+  color: #f00;
+  font-size: 10px;
+  margin: 0;
+}
+
+.vizMermaid__error--hidden {
+  display: none;
+}
+
+.vizMermaid__content {
+  display: none;
+}
+
+.vizMermaid__textarea {
+  width: 100%;
+  padding: 10px;
+  height: 100px;
 }
