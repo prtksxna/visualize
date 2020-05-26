@@ -23,9 +23,14 @@ registerBlockType( 'viz/mermaid', {
 	},
 	attributes: {
 		content: {
-			type: 'array',
-			source: 'children',
+			type: 'string',
+			source: 'text',
 			selector: 'pre',
+		},
+		error: {
+			type: 'string',
+			source: 'text',
+			selector: 'pre.error',
 		},
 		alignment: {
 			type: 'string',
@@ -43,7 +48,7 @@ registerBlockType( 'viz/mermaid', {
 	},
 	edit( props ) {
 		const {
-			attributes: { content, alignment, diagramSVG },
+			attributes: { content, alignment, diagramSVG, error },
 			setAttributes,
 			className,
 			isSelected,
@@ -57,7 +62,18 @@ registerBlockType( 'viz/mermaid', {
 			var newContent = e.target.value;
 			setAttributes( { content: newContent } );
 
-			var graph = mermaidAPI.render('graphDiv', newContent, updateGraph)
+			var shouldParse = true;
+			try {
+				mermaid.parse(newContent)
+			} catch (e) {
+				setAttributes({error: e.str})
+				shouldParse = false
+			}
+
+			if (shouldParse) {
+				setAttributes({error: ''})
+				var graph = mermaidAPI.render('graphDiv'+new Date().getTime(), newContent, updateGraph)
+			}
 		};
 
 		const onChangeAlignment = ( newAlignment ) => {
@@ -81,8 +97,8 @@ registerBlockType( 'viz/mermaid', {
 						Test
 					</InspectorControls>
 				}
-				<div className="mermaid__canvas" dangerouslySetInnerHTML={{__html: diagramSVG}}></div>
-				<pre className='mermaid2'>{ content }</pre>
+				<div className="mormaid__canvas" dangerouslySetInnerHTML={{__html: diagramSVG}}></div>
+				<pre className="error">{ error }</pre>
 				{isSelected && (
 					<textarea
 						className={ className }
@@ -97,7 +113,11 @@ registerBlockType( 'viz/mermaid', {
 	},
 	save: ( props ) => {
 		return (
-			<pre className='mermaid'>{ props.attributes.content }</pre>
+			<div>
+				<pre>{ props.attributes.content }</pre>
+				<pre className="error">{ props.attributes.error }</pre>
+				<div className="mormaid__canvas" dangerouslySetInnerHTML={{__html: props.attributes.diagramSVG}}></div>
+			</div>
 		);
 	},
 } );
