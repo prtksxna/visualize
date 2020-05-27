@@ -46081,6 +46081,9 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('viz
         setAttributes({
           error: ''
         });
+        mermaid__WEBPACK_IMPORTED_MODULE_5___default.a.initialize({
+          theme: 'neutral'
+        });
         var graph = mermaid__WEBPACK_IMPORTED_MODULE_5__["mermaidAPI"].render('graphDiv' + new Date().getTime(), newContent, updateGraph);
       }
     };
@@ -46120,7 +46123,7 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('viz
       dangerouslySetInnerHTML: {
         __html: diagramSVG
       }
-    }), isSelected && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("pre", {
+    }), isSelected && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
       className: "vizMermaid__error"
     }, error), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("textarea", {
       className: "vizMermaid__textarea",

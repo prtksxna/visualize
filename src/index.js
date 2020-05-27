@@ -72,6 +72,7 @@ registerBlockType( 'viz/mermaid', {
 
 			if (shouldParse) {
 				setAttributes({error: ''})
+				mermaid.initialize({theme:'neutral'});
 				var graph = mermaidAPI.render('graphDiv'+new Date().getTime(), newContent, updateGraph)
 			}
 		};
@@ -127,7 +128,7 @@ registerBlockType( 'viz/mermaid', {
 				<div className="vizMermaid__canvas" dangerouslySetInnerHTML={{__html: diagramSVG}}></div>
 				{isSelected && (
 					<>
-						<pre className="vizMermaid__error">{ error }</pre>
+						<div className="vizMermaid__error">{ error }</div>
 						<textarea
 							className="vizMermaid__textarea"
 							style={ {
