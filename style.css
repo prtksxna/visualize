@@ -12,8 +12,9 @@
   display: none;
 }
 
-.vizMermaid__textarea {
+.wp-block-viz-mermaid .vizMermaid__textarea {
   width: 100%;
   padding: 10px;
   height: 100px;
+  font-family: "Andale Mono", Monaco, monospace;
 }
