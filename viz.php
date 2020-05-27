@@ -41,14 +41,13 @@ function viz_block() {
     array(
         'style'         => 'viz-style',
         'editor_script' => 'viz',
-        'mermaid'       => 'viz-mermaid',
     )
   );
 }
 add_action( 'init', 'viz_block' );
 
 /**
- * Enque assets
+ * Enque assets for editor
  */
 function viz_assets() {
   wp_enqueue_script(
@@ -59,4 +58,4 @@ function viz_assets() {
     false
   );
 }
-add_action( 'enqueue_block_assets', 'viz_assets' );
+add_action( 'enqueue_block_editor_assets', 'viz_assets' );
