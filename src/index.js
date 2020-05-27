@@ -94,7 +94,34 @@ registerBlockType( 'viz/mermaid', {
 				}
 				{
 					<InspectorControls>
-						Test
+						<PanelBody
+							title={ __( 'Documentation' ) }
+							initialOpen={ false } >
+							<PanelRow>
+								<a href="https://mermaid-js.github.io/mermaid/#/flowchart">Flowchart</a>
+							</PanelRow>
+							<PanelRow>
+								<a href="https://mermaid-js.github.io/mermaid/#/sequenceDiagram">Sequence diagram</a>
+							</PanelRow>
+							<PanelRow>
+								<a href="https://mermaid-js.github.io/mermaid/#/classDiagram">Class diagram</a>
+							</PanelRow>
+							<PanelRow>
+								<a href="https://mermaid-js.github.io/mermaid/#/stateDiagram">State diagram</a>
+							</PanelRow>
+							<PanelRow>
+								<a href="https://mermaid-js.github.io/mermaid/#/entityRelationshipDiagram">Entity relation diagram</a>
+							</PanelRow>
+							<PanelRow>
+								<a href="https://mermaid-js.github.io/mermaid/#/user-journey">User journey</a>
+							</PanelRow>
+							<PanelRow>
+								<a href="https://mermaid-js.github.io/mermaid/#/gantt">Gantt</a>
+							</PanelRow>
+							<PanelRow>
+								<a href="https://mermaid-js.github.io/mermaid/#/pie">Pie chart</a>
+							</PanelRow>
+						</PanelBody>
 					</InspectorControls>
 				}
 				<div className="vizMermaid__canvas" dangerouslySetInnerHTML={{__html: diagramSVG}}></div>
