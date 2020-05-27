@@ -4,6 +4,7 @@
     "stylelint-config-wordpress/scss"
   ],
   "rules": {
-    "indentation": 2
+    "indentation": 2,
+    "selector-class-pattern": ""
   }
 }
