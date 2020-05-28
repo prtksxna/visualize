@@ -1,14 +1,14 @@
 <?php
 /**
- * Viz block for Gutenberg.
+ * Visualize block for Gutenberg.
  *
  * @file Main file.
- * @package viz
+ * @package visualize
  */
 
 /**
- * Plugin Name: Viz
- * Plugin URI: https://github.com/prtksxna/viz
+ * Plugin Name: Visualize
+ * Plugin URI: https://github.com/prtksxna/visualize
  * Description: Gutenberg block to add visualizations to your blog posts.
  * Version: 1.0.0
  * Requires at least: 5.1
@@ -18,11 +18,11 @@
  * License: GPL v2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
-function viz_block() {
+function visualize_block() {
   $asset_file = include plugin_dir_path( __FILE__ ) . 'build/index.asset.php';
 
   wp_register_script(
-    'viz',
+    'visualize',
     plugins_url( 'build/index.js', __FILE__ ),
     $asset_file['dependencies'],
     $asset_file['version'],
@@ -30,32 +30,32 @@ function viz_block() {
   );
 
   wp_register_style(
-    'viz-style',
+    'visualize-style',
     plugins_url( 'style.css', __FILE__),
     array(),
     filemtime( plugin_dir_path( __FILE__ ) . 'style.css' )
   );
 
   register_block_type(
-    'viz/mermaid',
+    'visualize/mermaid',
     array(
-        'style'         => 'viz-style',
-        'editor_script' => 'viz',
+        'style'         => 'visualize-style',
+        'editor_script' => 'visualize',
     )
   );
 }
-add_action( 'init', 'viz_block' );
+add_action( 'init', 'visualize_block' );
 
 /**
  * Enque assets for editor
  */
-function viz_assets() {
+function visualize_assets() {
   wp_enqueue_script(
-    'viz-mermaid',
+    'visualize-mermaid',
     plugins_url( '/lib/mermaid.min.js', __FILE__ ),
     array(),
     filemtime(plugins_url( '/lib/mermaid.min.js', __FILE__ )),
     false
   );
 }
-add_action( 'enqueue_block_editor_assets', 'viz_assets' );
+add_action( 'enqueue_block_editor_assets', 'visualize_assets' );

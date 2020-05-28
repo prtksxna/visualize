@@ -46010,7 +46010,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('viz/mermaid', {
+Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('visualize/mermaid', {
   title: 'Mermaid',
   icon: 'networking',
   category: 'layout',
@@ -46024,12 +46024,12 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('viz
     content: {
       type: 'string',
       source: 'text',
-      selector: 'pre.js-viz-content'
+      selector: 'pre.js-visualize-content'
     },
     error: {
       type: 'string',
       source: 'text',
-      selector: 'pre.js-viz-error'
+      selector: 'pre.js-visualize-error'
     },
     alignment: {
       type: 'string',
@@ -46055,9 +46055,9 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('viz
         className = props.className,
         isSelected = props.isSelected;
 
-    var updateGraph = function updateGraph(html) {
+    var updateGraph = function updateGraph(svg) {
       setAttributes({
-        diagramSVG: html
+        diagramSVG: svg
       });
     };
 
@@ -46070,9 +46070,9 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('viz
 
       try {
         mermaid__WEBPACK_IMPORTED_MODULE_5___default.a.parse(newContent);
-      } catch (e) {
+      } catch (parseError) {
         setAttributes({
-          error: e.str
+          error: parseError.str
         });
         shouldParse = false;
       }
@@ -46084,7 +46084,7 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('viz
         mermaid__WEBPACK_IMPORTED_MODULE_5___default.a.initialize({
           theme: 'neutral'
         });
-        var graph = mermaid__WEBPACK_IMPORTED_MODULE_5__["mermaidAPI"].render('graphDiv' + new Date().getTime(), newContent, updateGraph);
+        mermaid__WEBPACK_IMPORTED_MODULE_5__["mermaidAPI"].render('graphDiv' + new Date().getTime(), newContent, updateGraph);
       }
     };
 
@@ -46119,14 +46119,14 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('viz
     }, "Gantt")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelRow"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
       href: "https://mermaid-js.github.io/mermaid/#/pie"
     }, "Pie chart")))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-      className: "vizMermaid__canvas",
+      className: "visualizeMermaid__canvas",
       dangerouslySetInnerHTML: {
         __html: diagramSVG
       }
     }), isSelected && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-      className: "vizMermaid__error"
+      className: "visualizeMermaid__error"
     }, error), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("textarea", {
-      className: "vizMermaid__textarea",
+      className: "visualizeMermaid__textarea",
       style: {
         textAlign: alignment
       },
@@ -46135,11 +46135,11 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('viz
   },
   save: function save(props) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("pre", {
-      className: "vizMermaid__content js-viz-content"
+      className: "visualizeMermaid__content js-visualize-content"
     }, props.attributes.content), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("pre", {
-      className: "vizMermaid__error vizMermaid__error--hidden js-viz-error"
+      className: "visualizeMermaid__error visualizeMermaid__error--hidden js-visualize-error"
     }, props.attributes.error), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-      className: "vizMermaid__canvas",
+      className: "visualizeMermaid__canvas",
       dangerouslySetInnerHTML: {
         __html: props.attributes.diagramSVG
       }

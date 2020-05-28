@@ -10,7 +10,7 @@ import { PanelBody, PanelRow } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import mermaid, { mermaidAPI } from 'mermaid';
 
-registerBlockType( 'viz/mermaid', {
+registerBlockType( 'visualize/mermaid', {
 	title: 'Mermaid',
 	icon: 'networking',
 	category: 'layout',
@@ -24,12 +24,12 @@ registerBlockType( 'viz/mermaid', {
 		content: {
 			type: 'string',
 			source: 'text',
-			selector: 'pre.js-viz-content',
+			selector: 'pre.js-visualize-content',
 		},
 		error: {
 			type: 'string',
 			source: 'text',
-			selector: 'pre.js-viz-error',
+			selector: 'pre.js-visualize-error',
 		},
 		alignment: {
 			type: 'string',
@@ -146,14 +146,14 @@ registerBlockType( 'viz/mermaid', {
 					</InspectorControls>
 				}
 				<div
-					className="vizMermaid__canvas"
+					className="visualizeMermaid__canvas"
 					dangerouslySetInnerHTML={ { __html: diagramSVG } }
 				/>
 				{ isSelected && (
 					<>
-						<div className="vizMermaid__error">{ error }</div>
+						<div className="visualizeMermaid__error">{ error }</div>
 						<textarea
-							className="vizMermaid__textarea"
+							className="visualizeMermaid__textarea"
 							style={ {
 								textAlign: alignment,
 							} }
@@ -169,14 +169,14 @@ registerBlockType( 'viz/mermaid', {
 	save: ( props ) => {
 		return (
 			<div>
-				<pre className="vizMermaid__content js-viz-content">
+				<pre className="visualizeMermaid__content js-visualize-content">
 					{ props.attributes.content }
 				</pre>
-				<pre className="vizMermaid__error vizMermaid__error--hidden js-viz-error">
+				<pre className="visualizeMermaid__error visualizeMermaid__error--hidden js-visualize-error">
 					{ props.attributes.error }
 				</pre>
 				<div
-					className="vizMermaid__canvas"
+					className="visualizeMermaid__canvas"
 					dangerouslySetInnerHTML={ {
 						__html: props.attributes.diagramSVG,
 					} }

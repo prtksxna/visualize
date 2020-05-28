@@ -1,5 +1,5 @@
 {
-  "name": "viz",
+  "name": "visualize",
   "version": "1.0.0",
   "description": "Visualizations for WordPress",
   "main": "build/index.js",

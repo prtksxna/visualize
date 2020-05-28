@@ -1,18 +1,18 @@
-.vizMermaid__error {
+.visualizeMermaid__error {
   color: #f00;
   font-size: 10px;
   margin: 0;
 }
 
-.vizMermaid__error--hidden {
+.visualizeMermaid__error--hidden {
   display: none;
 }
 
-.vizMermaid__content {
+.visualizeMermaid__content {
   display: none;
 }
 
-.wp-block-viz-mermaid .vizMermaid__textarea {
+.wp-block-visualize-mermaid .visualizeMermaid__textarea {
   width: 100%;
   padding: 10px;
   height: 100px;

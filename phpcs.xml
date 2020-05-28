@@ -82,7 +82,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="viz"/>
+				<element value="visualize"/>
 				<element value="library-textdomain"/>
 			</property>
 		</properties>
@@ -91,7 +91,7 @@
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<property name="prefixes" type="array">
-				<element value="viz"/>
+				<element value="visualize"/>
 			</property>
 		</properties>
 	</rule>

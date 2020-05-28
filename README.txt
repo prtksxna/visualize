@@ -1,4 +1,4 @@
-=== Viz ===
+=== Visualize ===
 Contributors: prtksxna
 Tags: gutenberg, block, visualizations, mermaid, graphs, diagrams
 Requires at least: 5.1
