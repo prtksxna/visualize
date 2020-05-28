@@ -45,17 +45,3 @@ function visualize_block() {
   );
 }
 add_action( 'init', 'visualize_block' );
-
-/**
- * Enque assets for editor
- */
-function visualize_assets() {
-  wp_enqueue_script(
-    'visualize-mermaid',
-    plugins_url( '/lib/mermaid.min.js', __FILE__ ),
-    array(),
-    filemtime(plugins_url( '/lib/mermaid.min.js', __FILE__ )),
-    false
-  );
-}
-add_action( 'enqueue_block_editor_assets', 'visualize_assets' );
