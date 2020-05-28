@@ -8,8 +8,7 @@ import {
 } from '@wordpress/block-editor';
 import { PanelBody, PanelRow } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import mermaid, {mermaidAPI} from 'mermaid';
-
+import mermaid, { mermaidAPI } from 'mermaid';
 
 registerBlockType( 'viz/mermaid', {
 	title: 'Mermaid',
@@ -37,8 +36,8 @@ registerBlockType( 'viz/mermaid', {
 			default: 'none',
 		},
 		diagramSVG: {
-			type: 'string'
-		}
+			type: 'string',
+		},
 	},
 	example: {
 		attributes: {
@@ -54,26 +53,30 @@ registerBlockType( 'viz/mermaid', {
 			isSelected,
 		} = props;
 
-		const updateGraph = (html) => {
-			setAttributes({diagramSVG: html})
-		}
+		const updateGraph = ( svg ) => {
+			setAttributes( { diagramSVG: svg } );
+		};
 
 		const onChangeContent = ( e ) => {
-			var newContent = e.target.value;
+			const newContent = e.target.value;
 			setAttributes( { content: newContent } );
 
-			var shouldParse = true;
+			let shouldParse = true;
 			try {
-				mermaid.parse(newContent)
-			} catch (e) {
-				setAttributes({error: e.str})
-				shouldParse = false
+				mermaid.parse( newContent );
+			} catch ( parseError ) {
+				setAttributes( { error: parseError.str } );
+				shouldParse = false;
 			}
 
-			if (shouldParse) {
-				setAttributes({error: ''})
-				mermaid.initialize({theme:'neutral'});
-				var graph = mermaidAPI.render('graphDiv'+new Date().getTime(), newContent, updateGraph)
+			if ( shouldParse ) {
+				setAttributes( { error: '' } );
+				mermaid.initialize( { theme: 'neutral' } );
+				mermaidAPI.render(
+					'graphDiv' + new Date().getTime(),
+					newContent,
+					updateGraph
+				);
 			}
 		};
 
@@ -84,7 +87,7 @@ registerBlockType( 'viz/mermaid', {
 		};
 
 		return (
-			<div className={className}>
+			<div className={ className }>
 				{
 					<BlockControls>
 						<AlignmentToolbar
@@ -97,36 +100,56 @@ registerBlockType( 'viz/mermaid', {
 					<InspectorControls>
 						<PanelBody
 							title={ __( 'Documentation' ) }
-							initialOpen={ false } >
+							initialOpen={ false }
+						>
 							<PanelRow>
-								<a href="https://mermaid-js.github.io/mermaid/#/flowchart">Flowchart</a>
+								<a href="https://mermaid-js.github.io/mermaid/#/flowchart">
+									Flowchart
+								</a>
 							</PanelRow>
 							<PanelRow>
-								<a href="https://mermaid-js.github.io/mermaid/#/sequenceDiagram">Sequence diagram</a>
+								<a href="https://mermaid-js.github.io/mermaid/#/sequenceDiagram">
+									Sequence diagram
+								</a>
 							</PanelRow>
 							<PanelRow>
-								<a href="https://mermaid-js.github.io/mermaid/#/classDiagram">Class diagram</a>
+								<a href="https://mermaid-js.github.io/mermaid/#/classDiagram">
+									Class diagram
+								</a>
 							</PanelRow>
 							<PanelRow>
-								<a href="https://mermaid-js.github.io/mermaid/#/stateDiagram">State diagram</a>
+								<a href="https://mermaid-js.github.io/mermaid/#/stateDiagram">
+									State diagram
+								</a>
 							</PanelRow>
 							<PanelRow>
-								<a href="https://mermaid-js.github.io/mermaid/#/entityRelationshipDiagram">Entity relation diagram</a>
+								<a href="https://mermaid-js.github.io/mermaid/#/entityRelationshipDiagram">
+									Entity relation diagram
+								</a>
 							</PanelRow>
 							<PanelRow>
-								<a href="https://mermaid-js.github.io/mermaid/#/user-journey">User journey</a>
+								<a href="https://mermaid-js.github.io/mermaid/#/user-journey">
+									User journey
+								</a>
 							</PanelRow>
 							<PanelRow>
-								<a href="https://mermaid-js.github.io/mermaid/#/gantt">Gantt</a>
+								<a href="https://mermaid-js.github.io/mermaid/#/gantt">
+									Gantt
+								</a>
 							</PanelRow>
 							<PanelRow>
-								<a href="https://mermaid-js.github.io/mermaid/#/pie">Pie chart</a>
+								<a href="https://mermaid-js.github.io/mermaid/#/pie">
+									Pie chart
+								</a>
 							</PanelRow>
 						</PanelBody>
 					</InspectorControls>
 				}
-				<div className="vizMermaid__canvas" dangerouslySetInnerHTML={{__html: diagramSVG}}></div>
-				{isSelected && (
+				<div
+					className="vizMermaid__canvas"
+					dangerouslySetInnerHTML={ { __html: diagramSVG } }
+				/>
+				{ isSelected && (
 					<>
 						<div className="vizMermaid__error">{ error }</div>
 						<textarea
@@ -135,9 +158,11 @@ registerBlockType( 'viz/mermaid', {
 								textAlign: alignment,
 							} }
 							onChange={ onChangeContent }
-							>{ content }</textarea>
+						>
+							{ content }
+						</textarea>
 					</>
-				)}
+				) }
 			</div>
 		);
 	},
@@ -152,7 +177,9 @@ registerBlockType( 'viz/mermaid', {
 				</pre>
 				<div
 					className="vizMermaid__canvas"
-					dangerouslySetInnerHTML={{__html: props.attributes.diagramSVG}}
+					dangerouslySetInnerHTML={ {
+						__html: props.attributes.diagramSVG,
+					} }
 				/>
 			</div>
 		);
