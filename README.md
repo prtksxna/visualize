@@ -4,6 +4,8 @@
 ![Node.js CI](https://github.com/prtksxna/viz/workflows/Node.js%20CI/badge.svg)
 ![PHP Composer](https://github.com/prtksxna/viz/workflows/PHP%20Composer/badge.svg)
 
+![Screenshot of Viz plugin](https://raw.githubusercontent.com/prtksxna/viz/master/.wordpress-org/screenshot-2.png)
+
 A Gutenberg block to add visualizations to your blog posts.
 
 # Development
