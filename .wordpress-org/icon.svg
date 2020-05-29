@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#EFEFEF" offset="100%"></stop>
+        </linearGradient>
+        <path d="M98.2454542,0.5 L137.754546,0.5 C170.428494,0.5 183.385871,4.12019883 196.096982,10.9181754 C208.808094,17.7161521 218.783848,27.6919065 225.581825,40.4030176 C232.379801,53.1141287 236,66.0715057 236,98.7454542 L236,138.254546 C236,170.928494 232.379801,183.885871 225.581825,196.596982 C218.783848,209.308094 208.808094,219.283848 196.096982,226.081825 C183.385871,232.879801 170.428494,236.5 137.754546,236.5 L98.2454542,236.5 C65.5715057,236.5 52.6141287,232.879801 39.9030176,226.081825 C27.1919065,219.283848 17.2161521,209.308094 10.4181754,196.596982 C3.62019883,183.885871 1.52205158e-15,170.928494 -2.47935307e-15,138.254546 L2.47935307e-15,98.7454542 C-1.52205158e-15,66.0715057 3.62019883,53.1141287 10.4181754,40.4030176 C17.2161521,27.6919065 27.1919065,17.7161521 39.9030176,10.9181754 C52.6141287,4.12019883 65.5715057,0.5 98.2454542,0.5 Z" id="path-2"></path>
+        <linearGradient x1="83.2010361%" y1="71.9063336%" x2="15.7670455%" y2="71.9063336%" id="linearGradient-4">
+            <stop stop-color="#5F2687" offset="0%"></stop>
+            <stop stop-color="#D9A9E3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="69.0169598%" x2="39.9497487%" y2="16.9166143%" id="linearGradient-5">
+            <stop stop-color="#FFFFFF" stop-opacity="0.1" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.1" offset="100%"></stop>
+        </linearGradient>
+        <path d="M142.356406,38 L200.813121,139.25 C205.231399,146.902682 202.609397,156.688128 194.956715,161.106406 C192.524407,162.5107 189.765301,163.25 186.956715,163.25 L70.0432852,163.25 C61.2067292,163.25 54.0432852,156.086556 54.0432852,147.25 C54.0432852,144.441413 54.7825855,141.682307 56.1868788,139.25 L114.643594,38 C119.061872,30.347318 128.847318,27.7253155 136.5,32.1435935 C138.932307,33.5478868 140.952113,35.5676926 142.356406,38 Z" id="path-6"></path>
+        <filter x="-4.5%" y="-13.1%" width="109.0%" height="101.1%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="0" dy="-8" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.417367788 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="-2" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.236396416 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(10.000000, 9.500000)">
+            <mask id="mask-3" fill="white">
+                <use xlink:href="#path-2"></use>
+            </mask>
+            <use id="Mask" stroke="#3366CC" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+            <g opacity="0.188337054" mask="url(#mask-3)" stroke-linecap="square">
+                <g transform="translate(-31.000000, -19.000000)">
+                    <g id="Group" transform="translate(26.000000, 0.000000)">
+                        <line x1="110.5" y1="0.5" x2="110.5" y2="272.5" id="Line" stroke="#3366CC"></line>
+                        <line x1="132.5" y1="0.5" x2="132.5" y2="272.5" id="Line-Copy" stroke="#3366CC"></line>
+                        <line x1="154.5" y1="0.5" x2="154.5" y2="272.5" id="Line-Copy-2" stroke="#3366CC"></line>
+                        <line x1="176.5" y1="0.5" x2="176.5" y2="272.5" id="Line-Copy-3" stroke="#3366CC"></line>
+                        <line x1="198.5" y1="0.5" x2="198.5" y2="272.5" id="Line-Copy-4" stroke="#3366CC"></line>
+                        <line x1="220.5" y1="0.5" x2="220.5" y2="272.5" id="Line-Copy-5" stroke="#3366CC"></line>
+                        <line x1="0.5" y1="0.5" x2="0.5" y2="272.5" id="Line-Copy-7" stroke="#3366CC"></line>
+                        <line x1="22.5" y1="0.5" x2="22.5" y2="272.5" id="Line-Copy-8" stroke="#3366CC"></line>
+                        <line x1="44.5" y1="0.5" x2="44.5" y2="272.5" id="Line-Copy-9" stroke="#3366CC"></line>
+                        <line x1="66.5" y1="0.5" x2="66.5" y2="272.5" id="Line-Copy-10" stroke="#3366CC"></line>
+                        <line x1="88.5" y1="0.5" x2="88.5" y2="272.5" id="Line-Copy-11" stroke="#3366CC"></line>
+                    </g>
+                    <g id="Group-Copy" transform="translate(136.500000, 136.500000) rotate(90.000000) translate(-136.500000, -136.500000) translate(26.000000, 0.000000)">
+                        <line x1="110.5" y1="0.5" x2="110.5" y2="272.5" id="Line" stroke="#3366CC"></line>
+                        <line x1="132.5" y1="0.5" x2="132.5" y2="272.5" id="Line-Copy" stroke="#3366CC"></line>
+                        <line x1="154.5" y1="0.5" x2="154.5" y2="272.5" id="Line-Copy-2" stroke="#3366CC"></line>
+                        <line x1="176.5" y1="0.5" x2="176.5" y2="272.5" id="Line-Copy-3" stroke="#3366CC"></line>
+                        <line x1="198.5" y1="0.5" x2="198.5" y2="272.5" id="Line-Copy-4" stroke="#3366CC"></line>
+                        <line x1="220.5" y1="0.5" x2="220.5" y2="272.5" id="Line-Copy-5" stroke="#3366CC"></line>
+                        <line x1="0.5" y1="0.5" x2="0.5" y2="272.5" id="Line-Copy-7" stroke="#3366CC"></line>
+                        <line x1="22.5" y1="0.5" x2="22.5" y2="272.5" id="Line-Copy-8" stroke="#3366CC"></line>
+                        <line x1="44.5" y1="0.5" x2="44.5" y2="272.5" id="Line-Copy-9" stroke="#3366CC"></line>
+                        <line x1="66.5" y1="0.5" x2="66.5" y2="272.5" id="Line-Copy-10" stroke="#3366CC"></line>
+                        <line x1="88.5" y1="0.5" x2="88.5" y2="272.5" id="Line-Copy-11" stroke="#3366CC"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="Polygon" transform="translate(128.500000, 113.500000) scale(1, -1) translate(-128.500000, -113.500000) ">
+            <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-6"></use>
+            <use fill="url(#linearGradient-4)" fill-rule="evenodd" xlink:href="#path-6"></use>
+            <use fill="url(#linearGradient-5)" fill-rule="evenodd" xlink:href="#path-6"></use>
+        </g>
+    </g>
+</svg>
