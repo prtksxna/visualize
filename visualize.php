@@ -10,7 +10,7 @@
  * Plugin Name: Visualize
  * Plugin URI: https://github.com/prtksxna/visualize
  * Description: Gutenberg block to add visualizations to your blog posts.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Requires at least: 5.1
  * Requires PHP: 7.2
  * Author: Prateek Saxena
