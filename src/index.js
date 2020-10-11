@@ -18,7 +18,6 @@ registerBlockType( 'visualize/mermaid', {
 		align: true,
 		alignWide: true,
 		reusable: false,
-		lightBlockWrapper: true,
 	},
 	attributes: {
 		content: {
