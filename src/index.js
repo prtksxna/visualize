@@ -10,7 +10,7 @@ import { PanelBody, PanelRow } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import mermaid, { mermaidAPI } from 'mermaid';
 
-registerBlockType( 'visualize/mermaid', {
+registerBlockType('visualize/mermaid', {
 	title: 'Mermaid',
 	icon: 'networking',
 	category: 'layout',
@@ -44,7 +44,7 @@ registerBlockType( 'visualize/mermaid', {
 			alignment: 'center',
 		},
 	},
-	edit( props ) {
+	edit(props) {
 		const {
 			attributes: { content, alignment, diagramSVG, error },
 			setAttributes,
@@ -52,25 +52,25 @@ registerBlockType( 'visualize/mermaid', {
 			isSelected,
 		} = props;
 
-		const updateGraph = ( svg ) => {
-			setAttributes( { diagramSVG: svg } );
+		const updateGraph = (svg) => {
+			setAttributes({ diagramSVG: svg });
 		};
 
-		const onChangeContent = ( e ) => {
+		const onChangeContent = (e) => {
 			const newContent = e.target.value;
-			setAttributes( { content: newContent } );
+			setAttributes({ content: newContent });
 
 			let shouldParse = true;
 			try {
-				mermaid.parse( newContent );
-			} catch ( parseError ) {
-				setAttributes( { error: parseError.str } );
+				mermaid.parse(newContent);
+			} catch (parseError) {
+				setAttributes({ error: parseError.str });
 				shouldParse = false;
 			}
 
-			if ( shouldParse ) {
-				setAttributes( { error: '' } );
-				mermaid.initialize( { theme: 'neutral' } );
+			if (shouldParse) {
+				setAttributes({ error: '' });
+				mermaid.initialize({ theme: 'neutral' });
 				mermaidAPI.render(
 					'graphDiv' + new Date().getTime(),
 					newContent,
@@ -79,27 +79,27 @@ registerBlockType( 'visualize/mermaid', {
 			}
 		};
 
-		const onChangeAlignment = ( newAlignment ) => {
-			props.setAttributes( {
+		const onChangeAlignment = (newAlignment) => {
+			props.setAttributes({
 				alignment: newAlignment === undefined ? 'none' : newAlignment,
-			} );
+			});
 		};
 
 		return (
-			<div className={ className }>
+			<div className={className}>
 				{
 					<BlockControls>
 						<AlignmentToolbar
-							value={ alignment }
-							onChange={ onChangeAlignment }
+							value={alignment}
+							onChange={onChangeAlignment}
 						/>
 					</BlockControls>
 				}
 				{
 					<InspectorControls>
 						<PanelBody
-							title={ __( 'Documentation' ) }
-							initialOpen={ false }
+							title={__('Documentation')}
+							initialOpen={false}
 						>
 							<PanelRow>
 								<a href="https://mermaid-js.github.io/mermaid/#/flowchart">
@@ -146,41 +146,41 @@ registerBlockType( 'visualize/mermaid', {
 				}
 				<div
 					className="visualizeMermaid__canvas"
-					dangerouslySetInnerHTML={ { __html: diagramSVG } }
+					dangerouslySetInnerHTML={{ __html: diagramSVG }}
 				/>
-				{ isSelected && (
+				{isSelected && (
 					<>
-						<div className="visualizeMermaid__error">{ error }</div>
+						<div className="visualizeMermaid__error">{error}</div>
 						<textarea
 							className="visualizeMermaid__textarea"
-							style={ {
+							style={{
 								textAlign: alignment,
-							} }
-							onChange={ onChangeContent }
+							}}
+							onChange={onChangeContent}
 						>
-							{ content }
+							{content}
 						</textarea>
 					</>
-				) }
+				)}
 			</div>
 		);
 	},
-	save: ( props ) => {
+	save: (props) => {
 		return (
 			<div>
 				<pre className="visualizeMermaid__content js-visualize-content">
-					{ props.attributes.content }
+					{props.attributes.content}
 				</pre>
 				<pre className="visualizeMermaid__error visualizeMermaid__error--hidden js-visualize-error">
-					{ props.attributes.error }
+					{props.attributes.error}
 				</pre>
 				<div
 					className="visualizeMermaid__canvas"
-					dangerouslySetInnerHTML={ {
+					dangerouslySetInnerHTML={{
 						__html: props.attributes.diagramSVG,
-					} }
+					}}
 				/>
 			</div>
 		);
 	},
-} );
+});
