@@ -2,7 +2,7 @@
 Contributors: prtksxna
 Tags: gutenberg, block, visualizations, mermaid, graphs, diagrams
 Requires at least: 5.1
-Tested up to: 5.4.1
+Tested up to: 5.5
 Requires PHP: 7.2
 Stable tag: master
 License: GPLv2

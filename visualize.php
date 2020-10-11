@@ -12,6 +12,7 @@
  * Description: Gutenberg block to add visualizations to your blog posts.
  * Version: 1.0.1
  * Requires at least: 5.1
+ * Tested up to: 5.5
  * Requires PHP: 7.2
  * Author: Prateek Saxena
  * Author URI: https://prtksxna.com
