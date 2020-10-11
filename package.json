@@ -1,6 +1,6 @@
 {
   "name": "visualize",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Visualizations for WordPress",
   "main": "build/index.js",
   "scripts": {
