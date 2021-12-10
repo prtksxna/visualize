@@ -22,6 +22,6 @@
     "stylelint-config-wordpress": "^16.0.0"
   },
   "dependencies": {
-    "mermaid": "^8.5.1"
+    "mermaid": "^8.11.0"
   }
 }
